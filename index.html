@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naqi 个人主页 - 流光极光背景</title>
+<title>Naqi 个人主页 - 手机优化极光背景</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 html,body{
@@ -15,8 +15,6 @@ html,body{
   background:#0f0f0f;
   color:#fff;
 }
-
-/* Canvas背景 */
 #bgCanvas{
   position:fixed;
   top:0;
@@ -26,16 +24,16 @@ html,body{
   z-index:-1;
 }
 
-/* 毛玻璃卡片通用样式 */
+/* 毛玻璃卡片 */
 .section, .timeline-item .card{
   max-width:800px;
   margin:60px auto;
   padding:40px;
   border-radius:20px;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
   opacity:0;
   transform: translateY(50px);
   transition: all 0.8s ease-out;
@@ -51,7 +49,6 @@ h2{
   border-bottom:2px solid rgba(255,255,255,0.3);
   padding-bottom:8px;
 }
-
 p,li{ font-size:16px; line-height:1.6; }
 
 /* 技能标签 */
@@ -71,7 +68,7 @@ p,li{ font-size:16px; line-height:1.6; }
   transition: transform 0.3s;
 }
 .skill-list li:hover{
-  transform: translateY(-3px) scale(1.05);
+  transform: translateY(-2px) scale(1.05);
 }
 
 /* 按钮 */
@@ -91,7 +88,7 @@ p,li{ font-size:16px; line-height:1.6; }
   background: linear-gradient(135deg,#00ff99,#00ffff,#6a0dad);
 }
 
-/* 时间线模块 */
+/* 时间线 */
 .timeline{
   position: relative;
   max-width:800px;
@@ -136,11 +133,9 @@ p,li{ font-size:16px; line-height:1.6; }
   padding-left:20px;
   margin:0;
 }
-.timeline-item li{
-  margin-bottom:5px;
-}
+.timeline-item li{ margin-bottom:5px; }
 
-/* 响应式 */
+/* 响应式优化 */
 @media(max-width:900px){
   .section{ margin:40px 20px; padding:30px; }
   h2{ font-size:20px; }
@@ -159,14 +154,12 @@ p,li{ font-size:16px; line-height:1.6; }
 
 <canvas id="bgCanvas"></canvas>
 
-<!-- 关于我 -->
 <div class="section card">
   <h2>👤 关于我</h2>
   <p>你好，我是 Naqi，一名软件工程师，专注 Java、Go、Python 等语言开发，擅长大规模数据处理与性能优化。</p>
   <a href="mailto:a18246974273@163.com" class="contact-btn">联系我</a>
 </div>
 
-<!-- 技能专长 -->
 <div class="section card">
   <h2>🛠 技能专长</h2>
   <ul class="skill-list">
@@ -175,21 +168,17 @@ p,li{ font-size:16px; line-height:1.6; }
   </ul>
 </div>
 
-<!-- 教育经历 -->
 <div class="section card">
   <h2>🎓 教育经历</h2>
   <p>哈尔滨商业大学 · 软件工程 · 本科</p>
   <p>2017.09 – 2021.07</p>
 </div>
 
-<!-- 工作经历 -->
 <div class="section card">
   <h2>💼 工作经历</h2>
   <div>
     <p><strong>北京兴融信息科技有限公司 Java开发工程师</strong> (2021.07 – 2022.12)</p>
-    <ul>
-      <li>吉林银行公共组开发：实现柜员信息、尾箱信息等业务功能</li>
-    </ul>
+    <ul><li>吉林银行公共组开发：实现柜员信息、尾箱信息等业务功能</li></ul>
   </div>
   <div>
     <p><strong>华为（OD 项目） Java开发工程师 / 模块负责人</strong> (2023.01 – 至今)</p>
@@ -201,18 +190,15 @@ p,li{ font-size:16px; line-height:1.6; }
   </div>
 </div>
 
-<!-- 时间线模块 -->
+<!-- 时间线 -->
 <div class="timeline">
   <div class="timeline-item">
     <div class="card">
       <div class="date">2021.07 – 2022.12</div>
       <div class="title">北京兴融信息科技有限公司 · Java开发工程师</div>
-      <ul>
-        <li>吉林银行公共组开发：实现柜员信息、尾箱信息等业务功能</li>
-      </ul>
+      <ul><li>吉林银行公共组开发：实现柜员信息、尾箱信息等业务功能</li></ul>
     </div>
   </div>
-
   <div class="timeline-item">
     <div class="card">
       <div class="date">2023.01 – 至今</div>
@@ -224,7 +210,6 @@ p,li{ font-size:16px; line-height:1.6; }
       </ul>
     </div>
   </div>
-
   <div class="timeline-item">
     <div class="card">
       <div class="date">2023.06 – 2023.12</div>
@@ -238,56 +223,61 @@ p,li{ font-size:16px; line-height:1.6; }
 </div>
 
 <script>
-  // Scroll reveal 动画
-  const items = document.querySelectorAll('.section, .timeline-item');
-  const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){ entry.target.classList.add('visible'); }
-    });
-  }, { threshold:0.2 });
-  items.forEach(item=>observer.observe(item));
+const items = document.querySelectorAll('.section, .timeline-item');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
+},{threshold:0.2});
+items.forEach(item=>observer.observe(item));
 
-  // 流光极光背景
-  const canvas = document.getElementById('bgCanvas');
-  const ctx = canvas.getContext('2d');
-  let W,H;
-  function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
-  window.addEventListener('resize',resize);
-  resize();
+// 极光背景优化
+const canvas = document.getElementById('bgCanvas');
+const ctx = canvas.getContext('2d');
+let W,H;
+function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
+window.addEventListener('resize',resize);
+resize();
 
-  const gradients=[];
-  for(let i=0;i<3;i++){
-    gradients.push({
-      x: Math.random()*W,
-      y: Math.random()*H/2,
-      width: W,
-      height: H/3,
-      hue: 150 + Math.random()*100,
-      offset: Math.random()*1000
-    });
-  }
+const auroras=[];
+for(let i=0;i<3;i++){
+  auroras.push({y:Math.random()*H, amplitude:100+Math.random()*100, speed:0.05+Math.random()*0.02, hue:150 + Math.random()*100, offset:Math.random()*1000});
+});
 
-  function animate(){
-    ctx.clearRect(0,0,W,H);
+// 极光粒子
+const particles=[];
+for(let i=0;i<50;i++){
+  particles.push({x:Math.random()*W, y:Math.random()*H, radius:1+Math.random()*2, alpha:0.2+Math.random()*0.3});
+}
 
-    gradients.forEach(g=>{
-      const grad=ctx.createLinearGradient(0,g.y,0,g.y+g.height);
-      grad.addColorStop(0,`hsla(${g.hue},70%,30%,0)`);
-      grad.addColorStop(0.3,`hsla(${g.hue},80%,60%,0.3)`);
-      grad.addColorStop(0.7,`hsla(${g.hue},80%,60%,0.3)`);
-      grad.addColorStop(1,`hsla(${g.hue},70%,30%,0)`);
-      ctx.fillStyle=grad;
-      ctx.fillRect(0,g.y,W,g.height);
+function drawAurora(){
+  ctx.clearRect(0,0,W,H);
+  
+  // 光带
+  auroras.forEach((a,i)=>{
+    ctx.beginPath();
+    const y0 = a.y + Math.sin(a.offset)*a.amplitude;
+    const gradient = ctx.createLinearGradient(0,y0,0,H);
+    gradient.addColorStop(0, `hsla(${a.hue},70%,40%,0.2)`);
+    gradient.addColorStop(0.5, `hsla(${a.hue},80%,60%,0.25)`);
+    gradient.addColorStop(1, `hsla(${a.hue},70%,40%,0.2)`);
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0,y0,W,H/2);
+    
+    a.offset += a.speed;
+  });
 
-      // 缓慢移动
-      g.offset+=0.1;
-      g.y = (Math.sin(g.offset/200)*50) + H/4*i;
-    });
+  // 少量漂浮粒子
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
+    ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+    ctx.fill();
+    p.y -= 0.2;
+    if(p.y<0) p.y=H;
+  });
 
-    requestAnimationFrame(animate);
-  }
-  animate();
+  requestAnimationFrame(drawAurora);
+}
+drawAurora();
 </script>
-
 </body>
 </html>
