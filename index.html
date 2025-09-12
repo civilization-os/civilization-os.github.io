@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naqi 个人主页 - 高级霓虹</title>
+<title>Naqi 个人主页 - 流光极光背景</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 html,body{
@@ -16,7 +16,7 @@ html,body{
   color:#fff;
 }
 
-/* 全屏Canvas背景 */
+/* Canvas背景 */
 #bgCanvas{
   position:fixed;
   top:0;
@@ -32,7 +32,7 @@ html,body{
   margin:60px auto;
   padding:40px;
   border-radius:20px;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
@@ -61,7 +61,7 @@ p,li{ font-size:16px; line-height:1.6; }
 }
 .skill-list li{
   display:inline-block;
-  background: linear-gradient(135deg,#ff00ff,#00ffff);
+  background: linear-gradient(135deg,#6a0dad,#00ffff,#00ff99);
   color:#fff;
   padding:6px 12px;
   margin:5px 5px 0 0;
@@ -71,7 +71,7 @@ p,li{ font-size:16px; line-height:1.6; }
   transition: transform 0.3s;
 }
 .skill-list li:hover{
-  transform: translateY(-3px) scale(1.1);
+  transform: translateY(-3px) scale(1.05);
 }
 
 /* 按钮 */
@@ -80,7 +80,7 @@ p,li{ font-size:16px; line-height:1.6; }
   text-decoration:none;
   padding:10px 20px;
   border-radius:12px;
-  background: linear-gradient(135deg,#ff00ff,#00ffff);
+  background: linear-gradient(135deg,#6a0dad,#00ffff,#00ff99);
   color:#fff;
   font-weight:600;
   transition:0.3s;
@@ -88,7 +88,7 @@ p,li{ font-size:16px; line-height:1.6; }
   text-shadow:0 0 5px rgba(255,255,255,0.6);
 }
 .contact-btn:hover{
-  background: linear-gradient(135deg,#00ffff,#ff00ff);
+  background: linear-gradient(135deg,#00ff99,#00ffff,#6a0dad);
 }
 
 /* 时间线模块 */
@@ -105,7 +105,7 @@ p,li{ font-size:16px; line-height:1.6; }
   top:0;
   bottom:0;
   width:4px;
-  background: linear-gradient(#ff00ff,#00ffff);
+  background: linear-gradient(#6a0dad,#00ffff,#00ff99);
   border-radius:2px;
 }
 .timeline-item{
@@ -127,10 +127,10 @@ p,li{ font-size:16px; line-height:1.6; }
   top:0;
   width:20px;
   height:20px;
-  background:#ff00ff;
+  background:#6a0dad;
   border:4px solid #fff;
   border-radius:50%;
-  box-shadow:0 0 0 6px rgba(255,0,255,0.3);
+  box-shadow:0 0 0 6px rgba(106,13,173,0.3);
 }
 .timeline-item ul{
   padding-left:20px;
@@ -194,7 +194,7 @@ p,li{ font-size:16px; line-height:1.6; }
   <div>
     <p><strong>华为（OD 项目） Java开发工程师 / 模块负责人</strong> (2023.01 – 至今)</p>
     <ul>
-      <li>北向服务：特性 <span style="color:#ff00ff;font-weight:600;">Owner</span>，解决 Kafka 内存溢出 & 集合深拷贝超时问题</li>
+      <li>北向服务：特性 <span style="color:#6a0dad;font-weight:600;">Owner</span>，解决 Kafka 内存溢出 & 集合深拷贝超时问题</li>
       <li>报表服务优化：分区表优化，提升性能</li>
       <li>航空公司项目 PM：统筹项目进度，确保需求、开发、测试按时完成</li>
     </ul>
@@ -218,7 +218,7 @@ p,li{ font-size:16px; line-height:1.6; }
       <div class="date">2023.01 – 至今</div>
       <div class="title">华为（OD 项目） · Java开发工程师 / 模块负责人</div>
       <ul>
-        <li>北向服务：特性 <span style="color:#ff00ff;font-weight:600;">Owner</span>，解决 Kafka 内存溢出 & 集合深拷贝超时问题</li>
+        <li>北向服务：特性 <span style="color:#6a0dad;font-weight:600;">Owner</span>，解决 Kafka 内存溢出 & 集合深拷贝超时问题</li>
         <li>报表服务优化：分区表优化，提升性能</li>
         <li>航空公司项目 PM：统筹项目进度，确保需求、开发、测试按时完成</li>
       </ul>
@@ -240,16 +240,14 @@ p,li{ font-size:16px; line-height:1.6; }
 <script>
   // Scroll reveal 动画
   const items = document.querySelectorAll('.section, .timeline-item');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-      }
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('visible'); }
     });
-  }, { threshold: 0.2 });
-  items.forEach(item => observer.observe(item));
+  }, { threshold:0.2 });
+  items.forEach(item=>observer.observe(item));
 
-  // 高级霓虹流光背景
+  // 流光极光背景
   const canvas = document.getElementById('bgCanvas');
   const ctx = canvas.getContext('2d');
   let W,H;
@@ -257,63 +255,33 @@ p,li{ font-size:16px; line-height:1.6; }
   window.addEventListener('resize',resize);
   resize();
 
-  const particles=[];
-  for(let i=0;i<150;i++){
-    particles.push({
-      x:Math.random()*W,
-      y:Math.random()*H,
-      vx:(Math.random()-0.5)*1.2,
-      vy:(Math.random()-0.5)*1.2,
-      size:1+Math.random()*2,
-      hue:Math.random()*360
-    });
-  }
-
-  const lines=[];
-  for(let i=0;i<60;i++){
-    lines.push({
-      x:Math.random()*W,
-      y:Math.random()*H,
-      vx:(Math.random()-0.5)*0.5,
-      vy:(Math.random()-0.5)*0.5,
-      length:50+Math.random()*100,
-      hue:Math.random()*360
+  const gradients=[];
+  for(let i=0;i<3;i++){
+    gradients.push({
+      x: Math.random()*W,
+      y: Math.random()*H/2,
+      width: W,
+      height: H/3,
+      hue: 150 + Math.random()*100,
+      offset: Math.random()*1000
     });
   }
 
   function animate(){
     ctx.clearRect(0,0,W,H);
 
-    // 粒子
-    particles.forEach(p=>{
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
-      ctx.fillStyle=`hsl(${p.hue},80%,60%)`;
-      ctx.shadowBlur=8;
-      ctx.shadowColor=`hsl(${p.hue},80%,60%)`;
-      ctx.fill();
-      p.x+=p.vx;
-      p.y+=p.vy;
-      if(p.x<0||p.x>W) p.vx*=-1;
-      if(p.y<0||p.y>H) p.vy*=-1;
-      p.hue=(p.hue+0.5)%360;
-    });
+    gradients.forEach(g=>{
+      const grad=ctx.createLinearGradient(0,g.y,0,g.y+g.height);
+      grad.addColorStop(0,`hsla(${g.hue},70%,30%,0)`);
+      grad.addColorStop(0.3,`hsla(${g.hue},80%,60%,0.3)`);
+      grad.addColorStop(0.7,`hsla(${g.hue},80%,60%,0.3)`);
+      grad.addColorStop(1,`hsla(${g.hue},70%,30%,0)`);
+      ctx.fillStyle=grad;
+      ctx.fillRect(0,g.y,W,g.height);
 
-    // 霓虹线
-    lines.forEach(l=>{
-      ctx.beginPath();
-      ctx.moveTo(l.x,l.y);
-      ctx.lineTo(l.x+l.length*Math.cos(Math.random()*Math.PI*2), l.y+l.length*Math.sin(Math.random()*Math.PI*2));
-      ctx.strokeStyle=`hsl(${l.hue},80%,60%)`;
-      ctx.lineWidth=1.5;
-      ctx.shadowBlur=12;
-      ctx.shadowColor=`hsl(${l.hue},80%,60%)`;
-      ctx.stroke();
-      l.x+=l.vx;
-      l.y+=l.vy;
-      if(l.x<0||l.x>W) l.vx*=-1;
-      if(l.y<0||l.y>H) l.vy*=-1;
-      l.hue=(l.hue+0.3)%360;
+      // 缓慢移动
+      g.offset+=0.1;
+      g.y = (Math.sin(g.offset/200)*50) + H/4*i;
     });
 
     requestAnimationFrame(animate);
