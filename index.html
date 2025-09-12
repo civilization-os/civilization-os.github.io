@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naqi 个人主页 - 手机优化极光背景</title>
+<title>那琦个人主页</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 html,body{
@@ -12,7 +12,7 @@ html,body{
   height:100%;
   font-family:'Inter',sans-serif;
   overflow-x:hidden;
-  background:#0f0f0f;
+  background: linear-gradient(180deg,#0f0f0f,#1a1a2e);
   color:#fff;
 }
 #bgCanvas{
@@ -156,7 +156,7 @@ p,li{ font-size:16px; line-height:1.6; }
 
 <div class="section card">
   <h2>👤 关于我</h2>
-  <p>你好，我是 Naqi，一名软件工程师，专注 Java、Go、Python 等语言开发，擅长大规模数据处理与性能优化。</p>
+  <p>你好，我是那琦，一名软件工程师，专注 Java、Go、Python 等语言开发，擅长大规模数据处理与性能优化。</p>
   <a href="mailto:a18246974273@163.com" class="contact-btn">联系我</a>
 </div>
 
@@ -178,12 +178,14 @@ p,li{ font-size:16px; line-height:1.6; }
   <h2>💼 工作经历</h2>
   <div>
     <p><strong>北京兴融信息科技有限公司 Java开发工程师</strong> (2021.07 – 2022.12)</p>
-    <ul><li>吉林银行公共组开发：实现柜员信息、尾箱信息等业务功能</li></ul>
+    <ul>
+      <li>吉林银行公共组开发：实现柜员信息、尾箱信息等业务功能</li>
+    </ul>
   </div>
   <div>
     <p><strong>华为（OD 项目） Java开发工程师 / 模块负责人</strong> (2023.01 – 至今)</p>
     <ul>
-      <li>北向服务：特性 <span style="color:#6a0dad;font-weight:600;">Owner</span>，解决 Kafka 内存溢出 & 集合深拷贝超时问题</li>
+      <li>北向服务：特性 Owner，解决 Kafka 内存溢出 & 集合深拷贝超时问题</li>
       <li>报表服务优化：分区表优化，提升性能</li>
       <li>航空公司项目 PM：统筹项目进度，确保需求、开发、测试按时完成</li>
     </ul>
@@ -196,7 +198,9 @@ p,li{ font-size:16px; line-height:1.6; }
     <div class="card">
       <div class="date">2021.07 – 2022.12</div>
       <div class="title">北京兴融信息科技有限公司 · Java开发工程师</div>
-      <ul><li>吉林银行公共组开发：实现柜员信息、尾箱信息等业务功能</li></ul>
+      <ul>
+        <li>吉林银行公共组开发：实现柜员信息、尾箱信息等业务功能</li>
+      </ul>
     </div>
   </div>
   <div class="timeline-item">
@@ -204,7 +208,7 @@ p,li{ font-size:16px; line-height:1.6; }
       <div class="date">2023.01 – 至今</div>
       <div class="title">华为（OD 项目） · Java开发工程师 / 模块负责人</div>
       <ul>
-        <li>北向服务：特性 <span style="color:#6a0dad;font-weight:600;">Owner</span>，解决 Kafka 内存溢出 & 集合深拷贝超时问题</li>
+        <li>北向服务：特性 Owner，解决 Kafka 内存溢出 & 集合深拷贝超时问题</li>
         <li>报表服务优化：分区表优化，提升性能</li>
         <li>航空公司项目 PM：统筹项目进度，确保需求、开发、测试按时完成</li>
       </ul>
@@ -229,7 +233,7 @@ const observer = new IntersectionObserver(entries=>{
 },{threshold:0.2});
 items.forEach(item=>observer.observe(item));
 
-// 极光背景优化
+// 极光背景优化，手机端可见
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
 let W,H;
@@ -239,10 +243,15 @@ resize();
 
 const auroras=[];
 for(let i=0;i<3;i++){
-  auroras.push({y:Math.random()*H, amplitude:100+Math.random()*100, speed:0.05+Math.random()*0.02, hue:150 + Math.random()*100, offset:Math.random()*1000});
+  auroras.push({
+    y: Math.random()*H,
+    amplitude: (W<500?H/2:100+Math.random()*100),
+    speed:0.05+Math.random()*0.02,
+    hue:150+Math.random()*100,
+    offset: Math.random()*1000
+  });
 });
 
-// 极光粒子
 const particles=[];
 for(let i=0;i<50;i++){
   particles.push({x:Math.random()*W, y:Math.random()*H, radius:1+Math.random()*2, alpha:0.2+Math.random()*0.3});
@@ -250,22 +259,18 @@ for(let i=0;i<50;i++){
 
 function drawAurora(){
   ctx.clearRect(0,0,W,H);
-  
-  // 光带
-  auroras.forEach((a,i)=>{
+  auroras.forEach((a)=>{
     ctx.beginPath();
     const y0 = a.y + Math.sin(a.offset)*a.amplitude;
     const gradient = ctx.createLinearGradient(0,y0,0,H);
-    gradient.addColorStop(0, `hsla(${a.hue},70%,40%,0.2)`);
-    gradient.addColorStop(0.5, `hsla(${a.hue},80%,60%,0.25)`);
-    gradient.addColorStop(1, `hsla(${a.hue},70%,40%,0.2)`);
+    gradient.addColorStop(0, `hsla(${a.hue},70%,40%,0.35)`);
+    gradient.addColorStop(0.5, `hsla(${a.hue},80%,60%,0.4)`);
+    gradient.addColorStop(1, `hsla(${a.hue},70%,40%,0.35)`);
     ctx.fillStyle = gradient;
     ctx.fillRect(0,y0,W,H/2);
-    
     a.offset += a.speed;
   });
 
-  // 少量漂浮粒子
   particles.forEach(p=>{
     ctx.beginPath();
     ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
