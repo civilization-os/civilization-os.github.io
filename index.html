@@ -3,128 +3,121 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>个人简历</title>
+<title>Naqi 个人主页</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0;
+    font-family: 'Inter', sans-serif;
     background: #f5f5f5;
     color: #333;
   }
-  .container {
-    display: flex;
-    max-width: 1000px;
-    margin: 40px auto;
-    gap: 20px;
-    padding: 20px;
-  }
-  .sidebar, .main {
-    padding: 20px;
-    border-radius: 15px;
+  .section {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.7);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
   }
-  .sidebar {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .main {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
   h2 {
-    margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 24px;
+    margin-bottom: 20px;
     border-bottom: 2px solid #ccc;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
   }
-  .section {
-    margin-bottom: 10px;
+  p, li {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  ul {
+    padding-left: 20px;
   }
   .skill-list {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding-left: 0;
   }
   .skill-list li {
-    margin-bottom: 5px;
-  }
-  .job {
-    margin-bottom: 15px;
-  }
-  .job-title {
-    font-weight: bold;
-    font-size: 16px;
-  }
-  .job-duration {
-    color: #555;
+    display: inline-block;
+    background: rgba(0,123,255,0.15);
+    padding: 5px 10px;
+    margin: 5px 5px 0 0;
+    border-radius: 8px;
     font-size: 14px;
-    margin-bottom: 5px;
   }
   .highlight {
-    color: #0077cc;
+    color: #007bff;
+    font-weight: 600;
   }
 </style>
 </head>
 <body>
-  <div class="container">
-    <!-- 左侧栏 -->
-    <div class="sidebar">
-      <div class="section">
-        <h2>📞 个人信息</h2>
-        <p>手机号：XXXXXX</p>
-        <p>邮箱：a18246974273@163.com</p>
-        <p>城市：沈阳</p>
-        <p>年龄：27</p>
-        <p>工作年限：4.5 年</p>
-      </div>
-      <div class="section">
-        <h2>🛠 技能专长</h2>
-        <ul class="skill-list">
-          <li>开发语言：Java、JavaScript、Go、Python</li>
-          <li>中间件 & 数据库：Kafka、Redis、Elasticsearch、数据库设计与优化</li>
-          <li>桌面 & 跨语言工具：C#、WPF、跨平台构建</li>
-          <li>核心能力：采集模块开发与适配器设计、跨语言支持、性能优化、百万级消息处理</li>
-        </ul>
-      </div>
-    </div>
 
-    <!-- 右侧栏 -->
-    <div class="main">
-      <div class="section">
-        <h2>🎓 教育经历</h2>
-        <p>哈尔滨商业大学 2017.09 – 2021.07 本科 · 软件工程</p>
-      </div>
-      <div class="section">
-        <h2>💼 工作经历</h2>
+<!-- 关于我 -->
+<div class="section">
+  <h2>👤 关于我</h2>
+  <p>你好，我是 Naqi，一名软件工程师，专注 Java、Go、Python 等语言开发，擅长大规模数据处理与性能优化。</p>
+</div>
 
-        <div class="job">
-          <p class="job-title">北京兴融信息科技有限公司 Java开发工程师</p>
-          <p class="job-duration">2021.07 – 2022.12</p>
-          <ul>
-            <li>吉林银行公共组开发：实现柜员信息、尾箱信息等业务交易功能</li>
-          </ul>
-        </div>
+<!-- 技能专长 -->
+<div class="section">
+  <h2>🛠 技能专长</h2>
+  <ul class="skill-list">
+    <li>Java</li>
+    <li>Go</li>
+    <li>Python</li>
+    <li>Kafka</li>
+    <li>Redis</li>
+    <li>Elasticsearch</li>
+    <li>C# / WPF</li>
+    <li>数据库优化</li>
+  </ul>
+</div>
 
-        <div class="job">
-          <p class="job-title">华为（OD 项目） Java开发工程师 / 模块负责人</p>
-          <p class="job-duration">2023.01 – 至今</p>
-          <ul>
-            <li>北向服务：特性 <span class="highlight">Owner</span>，分析源码并解决 Kafka 内存溢出与集合深拷贝超时问题</li>
-            <li>报表服务优化：分区表优化报表清理，提升性能</li>
-            <li>航空公司项目 PM：统筹项目进度，确保需求、开发、测试按时完成</li>
-            <li>采集模块开发：开发采集底座及采集适配器，驻场支持并解决 180w/min 消息积压问题</li>
-            <li>亮点总结：模块 Owner & 项目 PM 经验，数据库性能优化、大规模数据处理能力，擅长源码分析与复杂问题定位</li>
-          </ul>
-        </div>
+<!-- 教育经历 -->
+<div class="section">
+  <h2>🎓 教育经历</h2>
+  <p>哈尔滨商业大学 · 软件工程 · 本科</p>
+  <p>2017.09 – 2021.07</p>
+</div>
 
-      </div>
-    </div>
-  </div>
+<!-- 工作经历 -->
+<div class="section">
+  <h2>💼 工作经历</h2>
+  <p><strong>北京兴融信息科技有限公司 Java开发工程师</strong> (2021.07 – 2022.12)</p>
+  <ul>
+    <li>吉林银行公共组开发：实现柜员信息、尾箱信息等业务功能</li>
+  </ul>
+  <p><strong>华为（OD 项目） Java开发工程师 / 模块负责人</strong> (2023.01 – 至今)</p>
+  <ul>
+    <li>北向服务：特性 <span class="highlight">Owner</span>，解决 Kafka 内存溢出 & 集合深拷贝超时问题</li>
+    <li>报表服务优化：分区表优化，提升性能</li>
+    <li>航空公司项目 PM：统筹项目进度，确保需求、开发、测试按时完成</li>
+    <li>采集模块开发：解决 180w/min 消息积压问题</li>
+  </ul>
+</div>
+
+<script>
+  // Scroll reveal
+  const sections = document.querySelectorAll('.section');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
 </body>
 </html>
