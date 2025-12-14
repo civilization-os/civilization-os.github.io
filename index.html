@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>那琦个人主页</title>
+<title>那琦 · 个人主页</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 html,body{
@@ -12,7 +12,7 @@ html,body{
   height:100%;
   font-family:'Inter',sans-serif;
   overflow-x:hidden;
-  background: linear-gradient(180deg,#0f0f0f,#1a1a2e); /* 渐变底色 */
+  background: linear-gradient(180deg,#0f0f0f,#1a1a2e);
   color:#fff;
 }
 #snowCanvas{
@@ -23,9 +23,7 @@ html,body{
   height:100%;
   z-index:-1;
 }
-
-/* 毛玻璃卡片 */
-.section, .timeline-item .card{
+.section{
   max-width:800px;
   margin:60px auto;
   padding:40px;
@@ -38,11 +36,10 @@ html,body{
   transform: translateY(50px);
   transition: all 0.8s ease-out;
 }
-.section.visible, .timeline-item.visible .card{
+.section.visible{
   opacity:1;
   transform: translateY(0);
 }
-
 h2{
   font-size:24px;
   margin-bottom:20px;
@@ -50,12 +47,7 @@ h2{
   padding-bottom:8px;
 }
 p,li{ font-size:16px; line-height:1.6; }
-
-/* 技能标签 */
-.skill-list{
-  list-style:none;
-  padding-left:0;
-}
+.skill-list{ list-style:none; padding-left:0; }
 .skill-list li{
   display:inline-block;
   background: linear-gradient(135deg,#6a0dad,#00ffff,#00ff99);
@@ -70,79 +62,11 @@ p,li{ font-size:16px; line-height:1.6; }
 .skill-list li:hover{
   transform: translateY(-2px) scale(1.05);
 }
-
-/* 按钮 */
-.contact-btn{
-  display:inline-block;
-  text-decoration:none;
-  padding:10px 20px;
-  border-radius:12px;
-  background: linear-gradient(135deg,#6a0dad,#00ffff,#00ff99);
-  color:#fff;
-  font-weight:600;
-  transition:0.3s;
-  margin-top:10px;
-  text-shadow:0 0 5px rgba(255,255,255,0.6);
-}
-.contact-btn:hover{
-  background: linear-gradient(135deg,#00ff99,#00ffff,#6a0dad);
-}
-
-/* 时间线 */
-.timeline{
-  position: relative;
-  max-width:800px;
-  margin:80px auto;
-  padding:0 20px;
-}
-.timeline::before{
-  content:'';
-  position:absolute;
-  left:20px;
-  top:0;
-  bottom:0;
-  width:4px;
-  background: linear-gradient(#6a0dad,#00ffff,#00ff99);
-  border-radius:2px;
-}
-.timeline-item{
-  position: relative;
-  margin-left:60px;
-  margin-bottom:50px;
-  opacity:0;
-  transform: translateY(30px);
-  transition: all 0.6s ease-out;
-}
-.timeline-item.visible{
-  opacity:1;
-  transform: translateY(0);
-}
-.timeline-item::before{
-  content:'';
-  position:absolute;
-  left:-40px;
-  top:0;
-  width:20px;
-  height:20px;
-  background:#6a0dad;
-  border:4px solid #fff;
-  border-radius:50%;
-  box-shadow:0 0 0 6px rgba(106,13,173,0.3);
-}
-.timeline-item ul{
-  padding-left:20px;
-  margin:0;
-}
-.timeline-item li{ margin-bottom:5px; }
-
-/* 响应式优化 */
+/* responsive adjustments */
 @media(max-width:900px){
   .section{ margin:40px 20px; padding:30px; }
   h2{ font-size:20px; }
   p,li{ font-size:15px; }
-  .timeline::before{ left:10px; }
-  .timeline-item{ margin-left:50px; }
-  .timeline-item::before{ left:-30px; }
 }
 @media(max-width:500px){
   .skill-list li{ font-size:13px; padding:4px 8px; }
@@ -151,20 +75,19 @@ p,li{ font-size:16px; line-height:1.6; }
 </style>
 </head>
 <body>
-
 <canvas id="snowCanvas"></canvas>
 
 <div class="section card">
   <h2>👤 关于我</h2>
-  <p>你好，我是那琦，一名软件工程师，专注 Java、Go、Python 等语言开发，擅长大规模数据处理与性能优化。</p>
-  <a href="mailto:a18246974273@163.com" class="contact-btn">联系我</a>
+  <p>你好，我是那琦，一名软件工程师，专注 Java 后端开发，擅长大规模数据处理与性能优化。</p>
 </div>
 
 <div class="section card">
-  <h2>🛠 技能专长</h2>
+  <h2>🛠 技能概览</h2>
   <ul class="skill-list">
-    <li>Java</li><li>Go</li><li>Python</li><li>Kafka</li>
-    <li>Redis</li><li>Elasticsearch</li><li>C# / WPF</li><li>数据库优化</li>
+    <li>Java</li><li>Spring Boot</li><li>Kafka</li><li>Redis</li>
+    <li>Elasticsearch</li><li>JavaScript</li><li>Go</li><li>Python</li>
+    <li>数据库设计与优化</li><li>性能调优</li>
   </ul>
 </div>
 
@@ -177,107 +100,93 @@ p,li{ font-size:16px; line-height:1.6; }
 <div class="section card">
   <h2>💼 工作经历</h2>
   <div>
-    <p><strong>北京兴融信息科技有限公司 Java开发工程师</strong> (2021.07 – 2022.12)</p>
+    <p><strong>华为（OD 项目） – Java 开发工程师 / 模块负责人</strong> (2023.01 – 至今)</p>
     <ul>
-      <li>吉林银行公共组开发：实现柜员信息、尾箱信息等业务功能</li>
+      <li>负责吉林银行综合柜面系统公共组的核心功能开发，牵头柜员管理、尾箱管理、现金管理等模块。</li>
+      <li>在北向服务模块中分析需求、设计方案并完成开发，解决 Kafka 内存溢出及集合深拷贝超时问题，提升系统稳定性。</li>
+      <li>优化报表服务数据库结构，采用 RANGE 分区策略及动态清理机制，提升查询性能。</li>
     </ul>
   </div>
   <div>
-    <p><strong>华为（OD 项目） Java开发工程师 / 模块负责人</strong> (2023.01 – 至今)</p>
+    <p><strong>北京兴融信息科技有限公司 – Java 开发工程师</strong> (2021.07 – 2022.12)</p>
     <ul>
-      <li>北向服务：特性 Owner，解决 Kafka 内存溢出 & 集合深拷贝超时问题</li>
-      <li>报表服务优化：分区表优化，提升性能</li>
-      <li>航空公司项目 PM：统筹项目进度，确保需求、开发、测试按时完成</li>
+      <li>设计并开发采集系统底座与适配器，引入批量处理与异步机制，解决高峰期 180 万条/分钟消息积压问题。</li>
+      <li>为企业级报表系统进行数据库优化，提高数据维护效率。</li>
+      <li>参与航空公司定制化项目，担任项目负责人并开发 Python 采集器，按期交付 SSO、短信网关等需求。</li>
     </ul>
   </div>
 </div>
 
-<!-- 时间线 -->
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="card">
-      <div class="date">2021.07 – 2022.12</div>
-      <div class="title">北京兴融信息科技有限公司 · Java开发工程师</div>
-      <ul>
-        <li>吉林银行公共组开发：实现柜员信息、尾箱信息等业务功能</li>
-      </ul>
-    </div>
-  </div>
-  <div class="timeline-item">
-    <div class="card">
-      <div class="date">2023.01 – 至今</div>
-      <div class="title">华为（OD 项目） · Java开发工程师 / 模块负责人</div>
-      <ul>
-        <li>北向服务：特性 Owner，解决 Kafka 内存溢出 & 集合深拷贝超时问题</li>
-        <li>报表服务优化：分区表优化，提升性能</li>
-        <li>航空公司项目 PM：统筹项目进度，确保需求、开发、测试按时完成</li>
-      </ul>
-    </div>
-  </div>
-  <div class="timeline-item">
-    <div class="card">
-      <div class="date">2023.06 – 2023.12</div>
-      <div class="title">新项目体验 / 临时经历</div>
-      <ul>
-        <li>采集模块开发：解决 180w/min 消息积压问题</li>
-        <li>优化数据库性能，提升报表查询效率</li>
-      </ul>
-    </div>
-  </div>
+<div class="section card">
+  <h2>📞 联系方式</h2>
+  <p id="sensitive-info">联系方式已加密</p>
+</div>
+
+<div class="section card">
+  <h2>📂 项目经历</h2>
+  <div id="projects">项目经历已加密，验证手机号或邮箱后可查看。</div>
+</div>
+
+<div class="section card" id="verify-section">
+  <h2>🔐 验证以解密</h2>
+  <p>为保护隐私，请输入您的手机号或邮箱地址进行验证。</p>
+  <input type="text" id="verify-input" placeholder="请输入手机号或邮箱" style="padding:8px;border-radius:8px;border:none;width:60%;max-width:300px;">
+  <button onclick="verify()" style="padding:10px 20px;margin-left:10px;border-radius:8px;border:none;background:#6a0dad;color:#fff;font-weight:600;">验证并解密</button>
 </div>
 
 <script>
-// 视差显示
-const items = document.querySelectorAll('.section, .timeline-item');
+// Fade-in effect
+const sections = document.querySelectorAll('.section');
 const observer = new IntersectionObserver(entries=>{
   entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
 },{threshold:0.2});
-items.forEach(item=>observer.observe(item));
+sections.forEach(item=>observer.observe(item));
 
-// 落雪效果
+// Snow effect
 const canvas = document.getElementById('snowCanvas');
 const ctx = canvas.getContext('2d');
 let W,H;
 function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
 window.addEventListener('resize',resize);
 resize();
-
 const snowflakes=[];
-for(let i=0;i<100;i++){
-  snowflakes.push({
-    x: Math.random()*W,
-    y: Math.random()*H,
-    r: 1+Math.random()*3,
-    d: Math.random()*1
-  });
-}
-
+for(let i=0;i<100;i++) snowflakes.push({ x: Math.random()*W, y: Math.random()*H, r:1+Math.random()*3, d:Math.random() });
 function drawSnow(){
   ctx.clearRect(0,0,W,H);
-  ctx.fillStyle = "rgba(255,255,255,0.8)";
+  ctx.fillStyle="rgba(255,255,255,0.8)";
   ctx.beginPath();
-  for(let i=0;i<snowflakes.length;i++){
-    let f = snowflakes[i];
-    ctx.moveTo(f.x,f.y);
-    ctx.arc(f.x,f.y,f.r,0,Math.PI*2,true);
-  }
+  for(let f of snowflakes){ ctx.moveTo(f.x,f.y); ctx.arc(f.x,f.y,f.r,0,Math.PI*2,true); }
   ctx.fill();
   updateSnow();
   requestAnimationFrame(drawSnow);
 }
-
 let angle = 0;
 function updateSnow(){
   angle += 0.01;
-  for(let i=0;i<snowflakes.length;i++){
-    let f = snowflakes[i];
-    f.y += Math.pow(f.d,0.5)+1;
+  snowflakes.forEach(f => {
+    f.y += Math.sqrt(f.d)+1;
     f.x += Math.sin(angle)*2;
-    if(f.y>H){ f.y=0; f.x=Math.random()*W; }
+    if(f.y>H){ f.y = 0; f.x = Math.random()*W; }
+  });
+}
+drawSnow();
+
+// Encryption variables
+const sensitiveInfoEncoded = '6IGU57O75pa55byP77yaMTgyICoqKiogNDI3MyAvIG5hY2xvdWQxNDdAb3V0bG9vay5jb20=';
+const projectsEncoded = 'PGgyPumhueebrue7j+WOhjwvaDI+CjxkaXYgY2xhc3M9InByb2plY3QiPgogIDxoMz7ph4fpm4bmqKHlnZfmgKfog73mj5DljYcgKDIwMjEuMDcg4oCTIDIwMjIuMTIpPC9oMz4KICA8cD48c3Ryb25nPuiDjOaZr++8mjwvc3Ryb25nPumHh+mbhuezu+e7n+WcqOmrmOW5tuWPkeWcuuaZr+S4i+WHuueOsOaAp+iDveeTtumiiO+8jOa2iOaBr+enr+WOi+S4pemHjeOAgjwvcD4KICA8cD48c3Ryb25nPuiBjOi0o++8mjwvc3Ryb25nPuiuvuiuoeW5tuW8gOWPkemHh+mbhuW6leW6p+WSjOmAgumFjeWZqO+8jOS8mOWMliBLYWZrYSDphY3nva7vvIzlvJXlhaXmibnph4/lkozlvILmraXlpITnkIbmnLrliLbjgII8L3A+CiAgPHA+PHN0cm9uZz7miJDmnpzvvJo8L3N0cm9uZz7op6PlhrPpq5jls7DmnJ8gMTgwIOS4h+adoS/liIbpkp/mtojmga/np6/ljovpl67popjvvIzmmL7okZfmj5DljYfns7vnu5/lkJ7lkJDph4/jgII8L3A+CjwvZGl2Pgo8ZGl2IGNsYXNzPSJwcm9qZWN0Ij4KICA8aDM+5YyX5ZCR5pyN5Yqh54m55oCn5byA5Y+R5LiO5LyY5YyWICgyMDI0LjAxIOKAkyAyMDI0LjAzKTwvaDM+CiAgPHA+PHN0cm9uZz7ogYzotKPvvJo8L3N0cm9uZz7liIbmnpDkuJrliqHpnIDmsYLvvIzorr7orqHlubblrp7njrDljJflkJHmnI3liqHmoLjlv4Plip/og73vvJvpgJrov4fmupDnoIHliIbmnpDlrprkvY0gS2Fma2Eg5YaF5a2Y5rqi5Ye65ZKM6ZuG5ZCI5rex5ou36LSd6LaF5pe255qE5Y6f5Zug77yM6L+b6KGM6ZKI5a+55oCn5LyY5YyW44CCPC9wPgogIDxwPjxzdHJvbmc+5oiQ5p6c77yaPC9zdHJvbmc+5pyN5Yqh56iz5a6a5oCn5o+Q5Y2H57qmIDMwJe+8jOaVhemanOeOh+mZjeiHsyAwLjElIOS7peS4i++8jOiOt+W+l+WboumYn+WSjOWuouaIt+iupOWPr+OAgjwvcD4KPC9kaXY+CjxkaXYgY2xhc3M9InByb2plY3QiPgogIDxoMz7miqXooajmlbDmja7lupPmnrbmnoTkvJjljJYgKOaXpeacn+S4jeivpik8L2gzPgogIDxwPjxzdHJvbmc+6IGM6LSj77yaPC9zdHJvbmc+5Li75a+85LyB5Lia5oql6KGo5pyN5Yqh5pWw5o2u5bqT6YeN5p6E77yM6YeH55SoIFJBTkdFIOWIhuWMuuetlueVpeW5tuiuvuiuoeWKqOaAgeWIhuWMuuWIoOmZpOacuuWItuOAgjwvcD4KICA8cD48c3Ryb25nPuaIkOaenO+8mjwvc3Ryb25nPuWOhuWPsuaVsOaNrua4heeQhuaViOeOh+Wkp+W5heaPkOWNh++8jOafpeivouaAp+iDveW+l+WIsOaUueWWhOOAgjwvcD4KPC9kaXY+CjxkaXYgY2xhc3M9InByb2plY3QiPgogIDxoMz7oiKrnqbrlhazlj7jlrprliLbljJbpobnnm64gKOaXpeacn+S4jeivpik8L2gzPgogIDxwPjxzdHJvbmc+6IGM6LSj77yaPC9zdHJvbmc+6LSf6LSj6ZyA5rGC6LCD56CU5ZKM5a6i5oi35rKf6YCa77yM5Yi25a6a6aG555uu5o6S5pyf77yM5Y2P6LCD6ZyA5rGC44CB5byA5Y+R5ZKM5rWL6K+V77yb54us56uL6K6+6K6h5bm25byA5Y+RIFB5dGhvbiDph4fpm4blmajvvIzlrp7njrDljZXngrnnmbvlvZXjgIHnn63kv6HnvZHlhbPlr7nmjqXlkozoh6rliqjljJbohJrmnKzmtYHnqIvjgII8L3A+CjwvdGl2Pg=='
+const expectedPhone = '18246974273';
+const expectedEmail = 'nacloud147@outlook.com';
+function verify(){
+  const val = document.getElementById('verify-input').value.trim();
+  if(val === expectedPhone || val.toLowerCase() === expectedEmail){
+    document.getElementById('sensitive-info').innerText = atob(sensitiveInfoEncoded);
+    document.getElementById('projects').innerHTML = atob(projectsEncoded);
+    document.getElementById('verify-section').style.display='none';
+  } else {
+    alert('验证失败，请输入正确的手机号或邮箱');
   }
 }
-
-drawSnow();
 </script>
+
 </body>
 </html>
