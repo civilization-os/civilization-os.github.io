@@ -5,3 +5,7 @@
 ## 技术栈
 
 纯静态 HTML + CSS + JavaScript，无框架依赖。
+
+---
+
+📖 **Wiki** → [civilization-os.github.io/docs](https://civilization-os.github.io/docs/)
